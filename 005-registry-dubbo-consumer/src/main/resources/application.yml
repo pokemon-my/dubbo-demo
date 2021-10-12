@@ -1,0 +1,16 @@
+server:
+  port: 9998
+dubbo:
+    application:
+      name: 005-registry-dubbo-consumer
+    registry:
+      protocol: zookeeper
+      address: zookeeper://192.168.8.105:2181
+    protocol:
+      name: dubbo
+      host: 192.168.8.105
+    scan:
+      base-packages: com.cib.dubbo
+      # 这个地址一定是服务提供者的包名（jar包）
+    metadata-report:
+      address: ${dubbo.registry.address}
